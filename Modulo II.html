@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Direccionamiento IP - Redes II</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .example-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .activity-box {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #00acc1;
+        }
+        .resources-box {
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #7cb342;
+        }
+        .binary-table {
+            font-family: monospace;
+            text-align: center;
+        }
+        .network-diagram {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .success-box {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Módulo 2: Direccionamiento IP</h1>
+    <p><strong>Duración:</strong> 5 sesiones</p>
+
+    <h2>Sesión 4: Direcciones IPv4 y Clases</h2>
+
+    <h3>1. Estructura de IPv4</h3>
+    <ul>
+        <li><strong>32 bits</strong> (4 octetos en formato decimal): <code>192.168.1.1</code></li>
+        <li><strong>Notación binaria</strong>: <code>11000000.10101000.00000001.00000001</code></li>
+    </ul>
+
+    <h3>2. Clases de Direcciones</h3>
+    <table>
+        <tr>
+            <th>Clase</th>
+            <th>Rango</th>
+            <th>Máscara Default</th>
+            <th>Uso</th>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>1.0.0.1 - 126.255.255.254</td>
+            <td>255.0.0.0 (/8)</td>
+            <td>Grandes redes (Ej: ISP)</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>128.0.0.1 - 191.255.255.254</td>
+            <td>255.255.0.0 (/16)</td>
+            <td>Universidades/empresas</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>192.0.0.1 - 223.255.255.254</td>
+            <td>255.255.255.0 (/24)</td>
+            <td>Pequeñas redes (LAN)</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td>224.0.0.0 - 239.255.255.255</td>
+            <td>-</td>
+            <td>Multicast</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>240.0.0.0 - 255.255.255.255</td>
+            <td>-</td>
+            <td>Experimental</td>
+        </tr>
+    </table>
+
+    <div class="example-box">
+        <h4>Ejemplo Práctico:</h4>
+        <ul>
+            <li><code>10.50.20.1</code> → Clase A (privada)</li>
+            <li><code>172.16.254.1</code> → Clase B (privada)</li>
+            <li><code>200.100.50.25</code> → Clase C (pública)</li>
+        </ul>
+    </div>
+
+    <h3>3. Direcciones Privadas vs. Públicas</h3>
+    <table>
+        <tr>
+            <th>Rango Privado</th>
+            <th>Equivalente Público (NAT)</th>
+        </tr>
+        <tr>
+            <td>10.0.0.0 - 10.255.255.255</td>
+            <td rowspan="3">Cualquier IP pública</td>
+        </tr>
+        <tr>
+            <td>172.16.0.0 - 172.31.255.255</td>
+        </tr>
+        <tr>
+            <td>192.168.0.0 - 192.168.255.255</td>
+        </tr>
+    </table>
+
+    <div class="activity-box">
+        <h4>Actividad: Clasificación de IPs</h4>
+        <p><strong>Material:</strong></p>
+        <ul>
+            <li>Lista de direcciones para clasificar:
+                <pre>15.20.100.5, 172.18.20.1, 192.168.0.100, 225.4.5.6</pre>
+            </li>
+        </ul>
+        <p><strong>Consigna:</strong></p>
+        <ol>
+            <li>Identificar clase (A/B/C/D/E).</li>
+            <li>Determinar si es pública o privada.</li>
+        </ol>
+    </div>
+
+    <h2>Sesión 5: Máscaras de Subred y CIDR</h2>
+
+    <h3>1. Concepto de Máscara</h3>
+    <p><strong>Ejemplo:</strong> <code>255.255.255.0</code> = <code>/24</code> (24 bits para red, 8 para hosts).</p>
+
+    <h3>2. Subneteo Básico</h3>
+    <p><strong>Ejemplo:</strong> Dividir <code>192.168.1.0/24</code> en 4 subredes:</p>
+    <table>
+        <tr>
+            <th>Subred</th>
+            <th>Dirección de Red</th>
+            <th>Rango de Hosts</th>
+            <th>Broadcast</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>192.168.1.0</td>
+            <td>192.168.1.1 - 192.168.1.62</td>
+            <td>192.168.1.63</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>192.168.1.64</td>
+            <td>192.168.1.65 - 192.168.1.126</td>
+            <td>192.168.1.127</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>192.168.1.128</td>
+            <td>192.168.1.129 - 192.168.1.190</td>
+            <td>192.168.1.191</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>192.168.1.192</td>
+            <td>192.168.1.193 - 192.168.1.254</td>
+            <td>192.168.1.255</td>
+        </tr>
+    </table>
+
+    <h3>3. Herramientas de Cálculo</h3>
+    <ul>
+        <li><strong>Calculadora Online:</strong> <a href="https://www.calculator.net/ip-subnet-calculator.html" target="_blank">IP Calculator</a></li>
+    </ul>
+
+    <div class="activity-box">
+        <h4>Actividad: Subneteo en Papel</h4>
+        <p><strong>Ejercicio:</strong></p>
+        <p>Dada la red <code>172.16.0.0/16</code>, crear 8 subredes.</p>
+        <p><strong>Pasos:</strong></p>
+        <ol>
+            <li>Calcular nueva máscara (<code>/19</code>).</li>
+            <li>Definir rangos de hosts por subred.</li>
+        </ol>
+    </div>
+
+    <h2>Sesión 6: Conversión Binario-Decimal</h2>
+
+    <h3>1. Método de Conversión</h3>
+    <p><strong>Ejemplo:</strong> Convertir <code>192</code> a binario:</p>
+    <table class="binary-table">
+        <tr>
+            <td>128</td>
+            <td>64</td>
+            <td>32</td>
+            <td>16</td>
+            <td>8</td>
+            <td>4</td>
+            <td>2</td>
+            <td>1</td>
+            <td>→ Valores posicionales</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>→ 192 = 128 + 64</td>
+        </tr>
+    </table>
+
+    <h3>2. Tabla de Referencia</h3>
+    <table>
+        <tr>
+            <th>Decimal</th>
+            <th>Binario</th>
+        </tr>
+        <tr>
+            <td>192</td>
+            <td>11000000</td>
+        </tr>
+        <tr>
+            <td>168</td>
+            <td>10101000</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>00000001</td>
+        </tr>
+    </table>
+
+    <div class="activity-box">
+        <h4>Actividad: Juego de Tarjetas</h4>
+        <p><strong>Dinámica:</strong></p>
+        <ul>
+            <li>Tarjetas con números decimales (ej: 10, 172, 255).</li>
+            <li>Estudiantes las convierten a binario en tiempo limitado.</li>
+        </ul>
+    </div>
+
+    <h2>Sesión 7: Configuración en Packet Tracer</h2>
+
+    <h3>1. Asignación de IPs</h3>
+    <ul>
+        <li><strong>PC:</strong> <code>192.168.1.10/24</code></li>
+        <li><strong>Router:</strong> <code>192.168.1.1/24</code></li>
+    </ul>
+
+    <h3>2. Verificación con Comandos</h3>
+    <pre>
+ping 192.168.1.1  # Prueba de conectividad
+ipconfig          # Windows / ifconfig en Linux</pre>
+
+    <div class="network-diagram">
+        <h4>Topología de Práctica</h4>
+        <pre>
+[PC1] ↔ [Switch] ↔ [Router] ↔ [PC2]</pre>
+    </div>
+
+    <div class="activity-box">
+        <h4>Actividad: Montar una LAN</h4>
+        <p><strong>Pasos:</strong></p>
+        <ol>
+            <li>Configurar IPs estáticas en PCs.</li>
+            <li>Probar comunicación con <code>ping</code>.</li>
+        </ol>
+    </div>
+
+    <h2>Sesión 8: Taller Integrador</h2>
+
+    <h3>Caso Práctico: Oficina con 3 Departamentos</h3>
+    <p><strong>Requisitos:</strong></p>
+    <ul>
+        <li>Red principal: <code>10.0.0.0/8</code></li>
+        <li>Crear subredes para:
+            <ul>
+                <li>Administración (50 hosts)</li>
+                <li>Ventas (30 hosts)</li>
+                <li>Soporte (20 hosts)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><strong>Entregables:</strong></p>
+    <ol>
+        <li>Tabla con rangos IP por departamento.</li>
+        <li>Diagrama en Packet Tracer.</li>
+    </ol>
+
+    <div class="resources-box">
+        <h3>Recursos Adicionales</h3>
+        <ul>
+            <li><strong>Simulador Online:</strong> <a href="https://www.subnetting.net/" target="_blank">Subnetting Game</a></li>
+            <li><strong>Video Tutorial:</strong> <a href="https://youtu.be/5WfiTHiU4x8" target="_blank">Subneteo Fácil</a></li>
+        </ul>
+    </div>
+
+    <div class="success-box">
+        <h3>Objetivos Logrados en Módulo 2</h3>
+        <p>✔️ Dominio de clases IPv4 y subneteo.<br>
+        ✔️ Configuración básica de dispositivos.<br>
+        ✔️ Conversión binario-decimal.</p>
+        <p style="font-weight: bold;">¿Continuamos con el Módulo 3 (Configuración Avanzada)?</p>
+    </div>
+</body>
+</html>

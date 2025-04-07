@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes II - Lic. en Análisis de Informática</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modules {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .module-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .module-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .module-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .module-card p {
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Redes II</a>
+            <nav>
+                <ul>
+                    <li><a href="Plan de Redes II.html">Plan de Clases</a></li>
+                    <li><a href="Modulo I.html">Módulo I</a></li>
+                    <li><a href="Modulo II.html">Módulo II</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Redes II - Licenciatura en Análisis de Informática</h1>
+            <p>Curso avanzado de redes de computadoras con enfoque en direccionamiento IP, configuración de redes y seguridad.</p>
+            <a href="Plan de Redes II.html" class="btn">Ver Plan de Clases</a>
+        </div>
+    </section>
+
+    <section class="modules">
+        <div class="container">
+            <h2 class="section-title">Módulos del Curso</h2>
+            <div class="module-cards">
+                <div class="module-card">
+                    <div class="card-content">
+                        <h3>Módulo I</h3>
+                        <p>Repaso y Fundamentos de Redes: Modelos OSI/TCP/IP, topologías y elementos de red.</p>
+                        <a href="Modulo I.html" class="btn">Ver Módulo</a>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="card-content">
+                        <h3>Módulo II</h3>
+                        <p>Direccionamiento IP: Clases de direcciones, subneteo, conversiones binario-decimal.</p>
+                        <a href="Modulo II.html" class="btn">Ver Módulo</a>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="card-content">
+                        <h3>Módulo III</h3>
+                        <p>Configuración Avanzada: DHCP, NAT, DNS, IPv6 y compartir recursos en red.</p>
+                        <a href="#" class="btn">Próximamente</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Redes II - Licenciatura en Análisis de Informática</p>
+            <p>Material didáctico para el curso de Redes de Computadoras II</p>
+        </div>
+    </footer>
+</body>
+</html>

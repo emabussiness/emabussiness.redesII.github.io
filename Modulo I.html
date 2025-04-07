@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Repaso y Fundamentos de Redes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .example-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .activity-box {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #00acc1;
+        }
+        .resources-box {
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #7cb342;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        .comparison-table {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .comparison-item {
+            flex: 0 0 48%;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .comparison-item {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Módulo 1: Repaso y Fundamentos de Redes</h1>
+    <p><strong>Duración:</strong> 3 sesiones</p>
+
+    <h2>Sesión 1: Introducción a Redes II y Repaso de Redes I</h2>
+
+    <h3>1. Repaso de Modelos OSI y TCP/IP</h3>
+    
+    <h4>Modelo OSI (7 Capas):</h4>
+    <table>
+        <tr>
+            <th>Capa</th>
+            <th>Nombre</th>
+            <th>Ejemplo</th>
+            <th>Función Principal</th>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Aplicación</td>
+            <td>HTTP, FTP, DNS</td>
+            <td>Interfaz usuario-red</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Presentación</td>
+            <td>SSL, JPEG</td>
+            <td>Formato y cifrado de datos</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Sesión</td>
+            <td>NetBIOS, RPC</td>
+            <td>Control de diálogo entre dispositivos</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Transporte</td>
+            <td>TCP, UDP</td>
+            <td>Confiabilidad y entrega de datos</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Red</td>
+            <td>IP, Router</td>
+            <td>Enrutamiento y direccionamiento</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Enlace de Datos</td>
+            <td>MAC, Switch</td>
+            <td>Control de acceso al medio</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Física</td>
+            <td>Cable UTP, Fibra Óptica</td>
+            <td>Transmisión binaria (bits)</td>
+        </tr>
+    </table>
+
+    <h4>Modelo TCP/IP (4 Capas):</h4>
+    <table>
+        <tr>
+            <th>Capa</th>
+            <th>Equivalente OSI</th>
+            <th>Protocolos Principales</th>
+        </tr>
+        <tr>
+            <td>Aplicación</td>
+            <td>5-7</td>
+            <td>HTTP, FTP, DNS, SMTP</td>
+        </tr>
+        <tr>
+            <td>Transporte</td>
+            <td>4</td>
+            <td>TCP, UDP</td>
+        </tr>
+        <tr>
+            <td>Internet</td>
+            <td>3</td>
+            <td>IP, ICMP, ARP</td>
+        </tr>
+        <tr>
+            <td>Acceso Red</td>
+            <td>1-2</td>
+            <td>Ethernet, Wi-Fi, PPP</td>
+        </tr>
+    </table>
+
+    <div class="example-box">
+        <h4>Ejemplo Práctico:</h4>
+        <p>Cuando abres una página web (<code>HTTP</code>), pasa por:</p>
+        <ul>
+            <li><strong>Capa 7 (Aplicación):</strong> Navegador solicita la página.</li>
+            <li><strong>Capa 4 (Transporte):</strong> TCP divide los datos en segmentos.</li>
+            <li><strong>Capa 3 (Red):</strong> IP envía paquetes al servidor.</li>
+            <li><strong>Capa 1 (Física):</strong> Bits viajan por cable/fibra.</li>
+        </ul>
+    </div>
+
+    <h3>2. Tipos de Redes</h3>
+    <table>
+        <tr>
+            <th>Tipo</th>
+            <th>Alcance</th>
+            <th>Ejemplo</th>
+        </tr>
+        <tr>
+            <td>LAN</td>
+            <td>Local (Edificio)</td>
+            <td>Red de la universidad</td>
+        </tr>
+        <tr>
+            <td>MAN</td>
+            <td>Ciudad</td>
+            <td>Red de cable operadora</td>
+        </tr>
+        <tr>
+            <td>WAN</td>
+            <td>Global (Países)</td>
+            <td>Internet</td>
+        </tr>
+    </table>
+
+    <div class="example-box">
+        <h4>Comparación:</h4>
+        <ul>
+            <li><strong>LAN:</strong> Baja latencia, alta velocidad (1 Gbps).</li>
+            <li><strong>WAN:</strong> Mayor latencia, menor velocidad (100 Mbps).</li>
+        </ul>
+    </div>
+
+    <div class="activity-box">
+        <h4>Actividad: Dibujar Modelos OSI/TCP/IP</h4>
+        <p><strong>Materiales:</strong></p>
+        <ul>
+            <li>Papel o herramienta digital (<a href="https://app.diagrams.net/" target="_blank">Draw.io</a>).</li>
+        </ul>
+        <p><strong>Consigna:</strong></p>
+        <ol>
+            <li>Dibujar ambos modelos y relacionarlos.</li>
+            <li>Asociar protocolos (ej: <code>HTTP → Capa 7</code>, <code>IP → Capa 3</code>).</li>
+            <li>Comparar con un caso real (ej: enviar un correo).</li>
+        </ol>
+    </div>
+
+    <h2>Sesión 2: Topologías de Red</h2>
+
+    <h3>1. Tipos de Topologías</h3>
+    
+    <div class="comparison-table">
+        <div class="comparison-item">
+            <h4>Estrella</h4>
+            <img src="images/estrella.png" alt="Topología Estrella" style="max-width: 300px;">
+            <p><strong>Ventajas:</strong> Fácil mantenimiento</p>
+            <p><strong>Desventajas:</strong> Depende del switch central</p>
+        </div>
+        <div class="comparison-item">
+            <h4>Anillo</h4>
+            <img src="images/anillo.jpg" alt="Topología Anillo" style="max-width: 300px;">
+            <p><strong>Ventajas:</strong> Sin colisiones</p>
+            <p><strong>Desventajas:</strong> Si un nodo falla, se cae la red</p>
+        </div>
+        <div class="comparison-item">
+            <h4>Malla</h4>
+            <img src="images/malla.png" alt="Topología Malla" style="max-width: 300px;">
+            <p><strong>Ventajas:</strong> Redundancia</p>
+            <p><strong>Desventajas:</strong> Costo alto de cables</p>
+        </div>
+        <div class="comparison-item">
+            <h4>Bus</h4>
+            <img src="images/bus.png" alt="Topología Bus" style="max-width: 300px;">
+            <p><strong>Ventajas:</strong> Barata</p>
+            <p><strong>Desventajas:</strong> Si el cable central falla, toda la red se cae</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Ejemplo:</h4>
+        <ul>
+            <li><strong>Universidad:</strong> Topología <strong>híbrida</strong> (Estrella en aulas + Malla en servidores).</li>
+            <li><strong>Casa:</strong> <strong>Estrella</strong> (Todos los dispositivos conectados al router).</li>
+        </ul>
+    </div>
+
+    <div class="activity-box">
+        <h4>Actividad: Diseñar en Packet Tracer</h4>
+        <p><strong>Pasos:</strong></p>
+        <ol>
+            <li>Descargar <a href="https://www.netacad.com/courses/packet-tracer" target="_blank">Cisco Packet Tracer</a>.</li>
+            <li>Crear una red con:
+                <ul>
+                    <li>1 Switch central (Estrella)</li>
+                    <li>3 PCs conectados al switch</li>
+                    <li>1 Router conectado a otro switch (Bus)</li>
+                </ul>
+            </li>
+            <li>Verificar conectividad con <code>ping</code>.</li>
+        </ol>
+    </div>
+
+    <h2>Sesión 3: Elementos de Red (Hardware)</h2>
+
+    <h3>1. Dispositivos de Red</h3>
+    
+    <div class="comparison-table">
+        <div class="comparison-item">
+            <h4>Hub</h4>
+            <img src="images/hub.jpg" alt="Hub de red" style="max-width: 300px;">
+            <p><strong>Función:</strong> Repite señales (obsoleto)</p>
+        </div>
+        <div class="comparison-item">
+            <h4>Switch</h4>
+            <img src="images/switch.jpeg" alt="Switch de red" style="max-width: 300px;">
+            <p><strong>Función:</strong> Filtra y dirige tráfico (MAC)</p>
+        </div>
+        <div class="comparison-item">
+            <h4>Router</h4>
+            <img src="images/router.jpg" alt="Router" style="max-width: 300px;">
+            <p><strong>Función:</strong> Conecta redes (IP)</p>
+        </div>
+        <div class="comparison-item">
+            <h4>Access Point</h4>
+            <img src="images/access point.jpg" alt="Access Point" style="max-width: 300px;">
+            <p><strong>Función:</strong> Extiende Wi-Fi</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Comparación Hub vs. Switch:</h4>
+        <ul>
+            <li><strong>Hub:</strong> Envía datos a todos los puertos (ineficiente).</li>
+            <li><strong>Switch:</strong> Filtra por dirección MAC (eficiente).</li>
+        </ul>
+    </div>
+
+    <h3>2. Medios de Transmisión</h3>
+    <table>
+        <tr>
+            <th>Medio</th>
+            <th>Velocidad</th>
+            <th>Distancia Máxima</th>
+            <th>Uso Típico</th>
+        </tr>
+        <tr>
+            <td>UTP (Cat6)</td>
+            <td>1 Gbps</td>
+            <td>100 m</td>
+            <td>Redes LAN</td>
+        </tr>
+        <tr>
+            <td>Fibra Óptica</td>
+            <td>10+ Gbps</td>
+            <td>40+ km</td>
+            <td>Conexiones WAN</td>
+        </tr>
+    </table>
+
+    <div class="example-box">
+        <h4>Ejemplo Práctico:</h4>
+        <p>Mostrar un cable UTP vs. fibra óptica (diferencias físicas).</p>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+            <img src="images/cable utp.jpg" alt="Cable UTP" style="max-width: 200px;">
+            <img src="images/fibra optica.jpg" alt="Fibra Óptica" style="max-width: 200px;">
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <h4>Actividad: Identificar Dispositivos en Esquema</h4>
+        <p><strong>Material:</strong></p>
+        <ul>
+            <li>Esquema de red con:
+                <ul>
+                    <li>1 Router</li>
+                    <li>2 Switches</li>
+                    <li>4 PCs</li>
+                    <li>1 Access Point</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Consigna:</strong></p>
+        <ol>
+            <li>Nombrar cada dispositivo.</li>
+            <li>Explicar su función en la red.</li>
+        </ol>
+        <img src="images/esquema de red.jpg" alt="Esquema de red de ejemplo" style="max-width: 500px;">
+    </div>
+
+    <div class="resources-box">
+        <h3>Recursos Adicionales</h3>
+        <ul>
+            <li><strong>Simulador Online:</strong> <a href="https://www.netacad.com/courses/packet-tracer" target="_blank">Cisco Packet Tracer</a></li>
+            <li><strong>Explicación Visual OSI/TCP:</strong> <a href="https://youtu.be/vv4y_uOneC0" target="_blank">YouTube: PowerCert Animated Videos</a></li>
+            <li><strong>Práctica de Subneteo:</strong> <a href="https://www.subnettingpractice.com/" target="_blank">SubnettingPractice.com</a></li>
+        </ul>
+    </div>
+
+    <div style="background-color: #e8f5e9; padding: 15px; border-radius: 5px; margin-top: 30px; text-align: center;">
+        <h3>Objetivos Logrados en el Módulo 1</h3>
+        <p>✔️ Entender modelos OSI/TCP/IP.<br>
+        ✔️ Diferenciar topologías de red.<br>
+        ✔️ Identificar hardware de red.</p>
+        <p style="font-weight: bold;">¿Listos para pasar al Módulo 2 (Direccionamiento IP)?</p>
+    </div>
+</body>
+</html>

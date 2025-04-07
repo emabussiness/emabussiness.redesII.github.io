@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Clases - Redes II</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+        .module {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .session {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        .session:last-child {
+            border-bottom: none;
+        }
+        .activity {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .example {
+            background-color: #f0f7eb;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .tools {
+            background-color: #f5e9f7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .evaluation {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .collapsible {
+            cursor: pointer;
+        }
+        .content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+        .active, .collapsible:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Plan de Clases - Redes II</h1>
+    <p><strong>Carrera:</strong> Lic. en Análisis de Informática</p>
+    <p><strong>Año:</strong> 4to</p>
+    <p><strong>Duración:</strong> 24 sesiones</p>
+    <p><strong>Objetivo:</strong> Fortalecer conocimientos teórico-prácticos en redes, con enfoque en configuración, seguridad y administración básica.</p>
+
+    <div class="module">
+        <h2 class="collapsible">Estructura General</h2>
+        <div class="content">
+            <ol>
+                <li><strong>Clases Teóricas Explicativas:</strong> Conceptos + Ejemplos</li>
+                <li><strong>Actividades Prácticas:</strong> Simuladores, ejercicios, discusiones</li>
+                <li><strong>Evaluaciones Cortas:</strong> Quizzes, ejercicios en clase</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="module">
+        <h2 class="collapsible">Módulo 1: Repaso y Fundamentos de Redes (Sesiones 1-3)</h2>
+        <div class="content">
+            <div class="session">
+                <h3>Sesión 1: Introducción a Redes II y Repaso de Redes I</h3>
+                <ul>
+                    <li>Repaso de modelos OSI y TCP/IP</li>
+                    <li>Tipos de redes (LAN, WAN, MAN)</li>
+                </ul>
+                <div class="activity">
+                    <strong>Actividad:</strong> Dibujar modelos OSI/TCP/IP y compararlos con ejemplos (ej. HTTP → Capa 7, IP → Capa 3)
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 2: Topologías de Red</h3>
+                <ul>
+                    <li>Tipos: Estrella, Anillo, Malla, Bus, Híbrida</li>
+                    <li>Ventajas/desventajas de cada una</li>
+                </ul>
+                <div class="example">
+                    <strong>Ejemplo:</strong> Comparar topología de la universidad vs. una casa
+                </div>
+                <div class="activity">
+                    <strong>Actividad:</strong> Diseñar en Packet Tracer una topología híbrida (ej. Estrella + Bus)
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 3: Elementos de Red (Hardware)</h3>
+                <ul>
+                    <li>Switches, routers, hubs, access points, medios de transmisión (UTP, fibra)</li>
+                </ul>
+                <div class="example">
+                    <strong>Ejemplo:</strong> Mostrar un switch real vs. un hub (diferencias)
+                </div>
+                <div class="activity">
+                    <strong>Actividad:</strong> Identificar dispositivos en un esquema dado
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module">
+        <h2 class="collapsible">Módulo 2: Direccionamiento IP (Sesiones 4-8)</h2>
+        <div class="content">
+            <div class="session">
+                <h3>Sesión 4: Direcciones IPv4 y Clases</h3>
+                <ul>
+                    <li>Clases A, B, C (ej. 10.0.0.1 → Clase A, 192.168.1.1 → Clase C)</li>
+                    <li>Direcciones públicas vs. privadas</li>
+                </ul>
+                <div class="activity">
+                    <strong>Ejercicio:</strong> Clasificar direcciones IP dadas
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 5: Máscaras de Subred y CIDR</h3>
+                <ul>
+                    <li>Concepto de máscara (ej. 255.255.255.0 = /24)</li>
+                    <li>Subneteo básico (ej. Dividir 192.168.1.0/24 en 4 subredes)</li>
+                </ul>
+                <div class="activity">
+                    <strong>Actividad:</strong> Calcular subredes en papel y verificar con calculadora online (ej. <a href="https://www.calculator.net/ip-subnet-calculator.html" target="_blank">IP Calculator</a>)
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 6: Conversión Binario-Decimal (IPv4)</h3>
+                <div class="example">
+                    <strong>Ejemplo:</strong> 192 en decimal → 11000000 en binario
+                </div>
+                <div class="activity">
+                    <strong>Actividad:</strong> Juego de conversión rápida (tarjetas con números)
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 7: Configuración Básica en Packet Tracer</h3>
+                <ul>
+                    <li>Asignar IPs a PCs y routers</li>
+                    <li>Verificar conectividad con ping</li>
+                </ul>
+                <div class="example">
+                    <strong>Ejemplo:</strong> Montar una LAN con 2 PCs y un switch
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 8: Taller de Direccionamiento</h3>
+                <div class="activity">
+                    <strong>Ejercicios integradores:</strong> Diseñar subredes para una oficina
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module">
+        <h2 class="collapsible">Módulo 3: Configuración Avanzada y Servicios (Sesiones 9-14)</h2>
+        <div class="content">
+            <!-- Contenido del módulo 3 -->
+            <div class="session">
+                <h3>Sesión 9: DHCP y DNS</h3>
+                <ul>
+                    <li>Explicación de DHCP (asignación automática de IPs)</li>
+                </ul>
+                <div class="activity">
+                    <strong>Actividad:</strong> Configurar un servidor DHCP en Packet Tracer
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 10: NAT y Acceso a Internet</h3>
+                <ul>
+                    <li>NAT estático vs. dinámico</li>
+                </ul>
+                <div class="example">
+                    <strong>Ejemplo:</strong> Simular NAT en Packet Tracer (LAN → Internet)
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 11: Compartir Recursos (Carpetas/Impresoras)</h3>
+                <ul>
+                    <li>Configurar compartir una carpeta en Windows/Linux</li>
+                </ul>
+                <div class="activity">
+                    <strong>Actividad:</strong> Práctica en parejas (acceder a una carpeta compartida)
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 12: Introducción a IPv6</h3>
+                <ul>
+                    <li>Diferencias con IPv4</li>
+                </ul>
+                <div class="example">
+                    <strong>Ejemplo:</strong> 2001:0db8:85a3::8a2e:0370:7334
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 13-14: Proyecto Guiado (Red Empresarial)</h3>
+                <div class="activity">
+                    <strong>Actividad:</strong> Diseñar una red corporativa en Packet Tracer con DHCP, DNS y acceso a Internet
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module">
+        <h2 class="collapsible">Módulo 4: Seguridad en Redes (Sesiones 15-19)</h2>
+        <div class="content">
+            <!-- Contenido del módulo 4 -->
+            <div class="session">
+                <h3>Sesión 15: Amenazas Comunes</h3>
+                <ul>
+                    <li>Malware, phishing, DoS, sniffing</li>
+                </ul>
+                <div class="example">
+                    <strong>Ejemplo:</strong> Mostrar un ataque ARP spoofing con Wireshark
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 16: Firewalls y ACLs</h3>
+                <ul>
+                    <li>Configurar reglas básicas en Packet Tracer</li>
+                </ul>
+                <div class="example">
+                    <strong>Ejemplo:</strong> Bloquear tráfico a un puerto específico
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 17: VPNs y Túneles</h3>
+                <ul>
+                    <li>Concepto y uso de OpenVPN/WireGuard</li>
+                </ul>
+                <div class="activity">
+                    <strong>Actividad:</strong> Conectar dos redes virtualmente (simulación)
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 18: Seguridad Wi-Fi (WPA2, WPA3)</h3>
+                <div class="activity">
+                    <strong>Actividad:</strong> Configurar seguridad en un Access Point simulado
+                </div>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 19: Taller de Ethical Hacking Básico</h3>
+                <div class="activity">
+                    <strong>Actividad:</strong> Uso de nmap para escaneo de puertos (ej. nmap -sP 192.168.1.0/24)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module">
+        <h2 class="collapsible">Módulo 5: Integración y Evaluación (Sesiones 20-24)</h2>
+        <div class="content">
+            <!-- Contenido del módulo 5 -->
+            <div class="session">
+                <h3>Sesión 20-22: Proyecto Final (Red Segura)</h3>
+                <p>Diseñar una red con:</p>
+                <ul>
+                    <li>Subneteos</li>
+                    <li>Servidores (DHCP, DNS)</li>
+                    <li>Firewall y políticas de seguridad</li>
+                </ul>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 23: Presentación de Proyectos</h3>
+                <p>Exposición en grupos</p>
+            </div>
+
+            <div class="session">
+                <h3>Sesión 24: Recapitulación y Cierre</h3>
+                <p>Dudas, consejos para certificaciones (CCNA, Network+)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tools">
+        <h3>Herramientas Utilizadas</h3>
+        <ul>
+            <li><strong>Packet Tracer:</strong> Simulación de redes</li>
+            <li><strong>Wireshark:</strong> Análisis de tráfico</li>
+            <li><strong>Calculadoras de Subredes Online</strong></li>
+            <li><strong>Nmap:</strong> Escaneo de redes</li>
+        </ul>
+    </div>
+
+    <div class="evaluation">
+        <h3>Evaluación</h3>
+        <ul>
+            <li><strong>40% Proyecto Final</strong></li>
+            <li><strong>30% Trabajos Prácticos</strong></li>
+            <li><strong>20% Participación/Quizzes</strong></li>
+            <li><strong>10% Asistencia</strong></li>
+        </ul>
+    </div>
+
+    <script>
+        document.querySelectorAll('.collapsible').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+
+        // Mostrar solo el primer módulo al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstModule = document.querySelector('.collapsible');
+            firstModule.classList.add('active');
+            firstModule.nextElementSibling.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
