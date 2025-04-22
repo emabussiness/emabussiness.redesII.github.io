@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de Redes - Direccionamiento IP</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .conversion-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .converter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .converter-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            margin: 5px 0;
+        }
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: var(--secondary);
+        }
+        .exercise {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .exercise h3 {
+            margin-top: 0;
+        }
+        .solution {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #dff0d8;
+            border-radius: 4px;
+        }
+        .packet-tracer-guide {
+            background-color: white;
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+            margin: 30px 0;
+        }
+        .step {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .step:before {
+            content: "►";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        .visual-guide {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        .visual-guide img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .binary-table {
+            font-family: monospace;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .binary-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Práctica de Direccionamiento IP</h1>
+    
+    <section id="conversiones">
+        <h2>Conversiones Binario ↔ Decimal</h2>
+        
+        <div class="converter">
+            <div class="converter-section">
+                <h3>Binario a Decimal</h3>
+                <div class="conversion-box">
+                    <p>Ingresa 8 bits (ej: 11000000):</p>
+                    <input type="text" id="binaryInput" maxlength="8" placeholder="Ej: 10101010">
+                    <button onclick="convertBinaryToDecimal()">Convertir</button>
+                    <div id="binaryResult" style="margin-top: 15px; font-weight: bold;"></div>
+                    
+                    <h4 style="margin-top: 20px;">Tabla de Valores</h4>
+                    <table class="binary-table">
+                        <tr>
+                            <td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+                        </tr>
+                        <tr>
+                            <td id="bit7">0</td><td id="bit6">0</td><td id="bit5">0</td><td id="bit4">0</td>
+                            <td id="bit3">0</td><td id="bit2">0</td><td id="bit1">0</td><td id="bit0">0</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Ejercicios Binario → Decimal</h3>
+                <div class="exercise">
+                    <p>1. Convierte <strong>11001100</strong> a decimal</p>
+                    <button onclick="showSolution('sol1')">Mostrar Solución</button>
+                    <div id="sol1" class="solution">128 + 64 + 8 + 4 = <strong>204</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>2. Convierte <strong>10101010</strong> a decimal</p>
+                    <button onclick="showSolution('sol2')">Mostrar Solución</button>
+                    <div id="sol2" class="solution">128 + 32 + 8 + 2 = <strong>170</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>3. Convierte <strong>11110000</strong> a decimal</p>
+                    <button onclick="showSolution('sol3')">Mostrar Solución</button>
+                    <div id="sol3" class="solution">128 + 64 + 32 + 16 = <strong>240</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>4. Convierte <strong>01010101</strong> a decimal</p>
+                    <button onclick="showSolution('sol4')">Mostrar Solución</button>
+                    <div id="sol4" class="solution">64 + 16 + 4 + 1 = <strong>85</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>5. Convierte <strong>10011001</strong> a decimal</p>
+                    <button onclick="showSolution('sol5')">Mostrar Solución</button>
+                    <div id="sol5" class="solution">128 + 16 + 8 + 1 = <strong>153</strong></div>
+                </div>
+            </div>
+            
+            <div class="converter-section">
+                <h3>Decimal a Binario</h3>
+                <div class="conversion-box">
+                    <p>Ingresa un número (0-255):</p>
+                    <input type="number" id="decimalInput" min="0" max="255" placeholder="Ej: 192">
+                    <button onclick="convertDecimalToBinary()">Convertir</button>
+                    <div id="decimalResult" style="margin-top: 15px; font-weight: bold;"></div>
+                    
+                    <h4 style="margin-top: 20px;">Método de Restas</h4>
+                    <p>Resta los valores más grandes posibles:</p>
+                    <div id="subtractionSteps" style="font-family: monospace;"></div>
+                </div>
+                
+                <h3>Ejercicios Decimal → Binario</h3>
+                <div class="exercise">
+                    <p>1. Convierte <strong>15</strong> a binario (8 bits)</p>
+                    <button onclick="showSolution('sol6')">Mostrar Solución</button>
+                    <div id="sol6" class="solution">8 + 4 + 2 + 1 = <strong>00001111</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>2. Convierte <strong>63</strong> a binario</p>
+                    <button onclick="showSolution('sol7')">Mostrar Solución</button>
+                    <div id="sol7" class="solution">32 + 16 + 8 + 4 + 2 + 1 = <strong>00111111</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>3. Convierte <strong>127</strong> a binario</p>
+                    <button onclick="showSolution('sol8')">Mostrar Solución</button>
+                    <div id="sol8" class="solution">64 + 32 + 16 + 8 + 4 + 2 + 1 = <strong>01111111</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>4. Convierte <strong>200</strong> a binario</p>
+                    <button onclick="showSolution('sol9')">Mostrar Solución</button>
+                    <div id="sol9" class="solution">128 + 64 + 8 = <strong>11001000</strong></div>
+                </div>
+                <div class="exercise">
+                    <p>5. Convierte <strong>10</strong> a binario</p>
+                    <button onclick="showSolution('sol10')">Mostrar Solución</button>
+                    <div id="sol10" class="solution">8 + 2 = <strong>00001010</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="packet-tracer">
+        <h2>Ejercicios Guiados en Packet Tracer</h2>
+        
+        <div class="packet-tracer-guide">
+            <h3>Ejercicio 1: Red Básica con 2 PCs</h3>
+            <div class="visual-guide">
+                <p><strong>Objetivo:</strong> Configurar IPs manualmente y probar conectividad</p>
+                            </div>
+            
+            <div class="step-by-step">
+                <div class="step">Arrastra <strong>2 PCs</strong> y un <strong>Switch 2960</strong> al área de trabajo</div>
+                <div class="step">Conéctalos con cables <strong>azules</strong> (FastEthernet)</div>
+                <div class="step">Haz clic en <strong>PC1</strong> → <strong>Desktop</strong> → <strong>IP Configuration</strong></div>
+                <div class="step">Selecciona <strong>Static</strong> y completa:
+                    <ul>
+                        <li>IP: <code>192.168.1.10</code></li>
+                        <li>Subnet Mask: <code>255.255.255.0</code></li>
+                    </ul>
+                </div>
+                <div class="step">Repite en <strong>PC2</strong> con IP <code>192.168.1.20</code></div>
+                <div class="step">Abre <strong>Command Prompt</strong> en ambas y escribe:
+                    <div class="code">ping 192.168.1.10  # Desde PC2</div>
+                </div>
+                <div class="step"><strong>Verifica:</strong> Debes ver "Reply from..."</div>
+            </div>
+        </div>
+        
+        <div class="packet-tracer-guide">
+            <h3>Ejercicio 2: Crear 2 VLANs</h3>
+            <div class="visual-guide">
+                <p><strong>Objetivo:</strong> Separar dispositivos en redes lógicas</p>
+            </div>
+            
+            <div class="step-by-step">
+                <div class="step">Arrastra <strong>1 Switch</strong> y <strong>3 PCs</strong></div>
+                <div class="step">Haz clic en el <strong>Switch</strong> → <strong>Config</strong> → <strong>VLAN Database</strong></div>
+                <div class="step">Crea:
+                    <ul>
+                        <li><strong>VLAN 10</strong> (Nombre: "Oficina")</li>
+                        <li><strong>VLAN 20</strong> (Nombre: "Ventas")</li>
+                    </ul>
+                </div>
+                <div class="step">Asigna puertos:
+                    <ul>
+                        <li>FastEthernet0/1 → VLAN 10</li>
+                        <li>FastEthernet0/2 → VLAN 20</li>
+                    </ul>
+                </div>
+                <div class="step">Configura IPs:
+                    <ul>
+                        <li>PC1 (VLAN 10): <code>192.168.10.10/24</code></li>
+                        <li>PC2 (VLAN 20): <code>192.168.20.10/24</code></li>
+                    </ul>
+                </div>
+                <div class="step">Prueba comunicación con <code>ping</code> entre PCs</div>
+                <div class="step"><strong>Resultado:</strong> No deben comunicarse (son redes diferentes)</div>
+            </div>
+        </div>
+        
+        <div class="packet-tracer-guide">
+            <h3>Ejercicio 3: Servidor DHCP Automático</h3>
+            <div class="visual-guide">
+                <p><strong>Objetivo:</strong> Configurar asignación automática de IPs</p>
+            </div>
+            
+            <div class="step-by-step">
+                <div class="step">Arrastra <strong>1 Servidor</strong>, <strong>1 Switch</strong> y <strong>2 PCs</strong></div>
+                <div class="step">Haz clic en el <strong>Servidor</strong> → <strong>Services</strong> → <strong>DHCP</strong></div>
+                <div class="step">Configura:
+                    <ul>
+                        <li>Pool: <code>192.168.1.100</code> to <code>192.168.1.200</code></li>
+                        <li>Default Gateway: <code>192.168.1.1</code></li>
+                        <li>DNS Server: <code>8.8.8.8</code></li>
+                    </ul>
+                </div>
+                <div class="step">En las <strong>PCs</strong> → <strong>Desktop</strong> → <strong>IP Configuration</strong> → Selecciona <strong>DHCP</strong></div>
+                <div class="step">Abre <strong>Command Prompt</strong> y escribe:
+                    <div class="code">ipconfig</div>
+                </div>
+                <div class="step"><strong>Verifica:</strong> Debe mostrar una IP del rango 192.168.1.100-200</div>
+            </div>
+        </div>
+        
+        <div class="packet-tracer-guide">
+            <h3>Ejercicio 4: Conectar 2 Redes con un Router</h3>
+            <div class="visual-guide">
+                <p><strong>Objetivo:</strong> Permitir comunicación entre VLANs</p>
+            </div>
+            
+            <div class="step-by-step">
+                <div class="step">Crea la topología del Ejercicio 2 (2 VLANs)</div>
+                <div class="step">Agrega un <strong>Router</strong> y conéctalo al Switch con cable <strong>verde</strong> (GigabitEthernet)</div>
+                <div class="step">Configura las interfaces del Router:
+                    <ul>
+                        <li>Gig0/0.10: <code>192.168.10.1/24</code> (VLAN 10)</li>
+                        <li>Gig0/0.20: <code>192.168.20.1/24</code> (VLAN 20)</li>
+                    </ul>
+                </div>
+                <div class="step">En las PCs, establece como Gateway:
+                    <ul>
+                        <li>PC1: <code>192.168.10.1</code></li>
+                        <li>PC2: <code>192.168.20.1</code></li>
+                    </ul>
+                </div>
+                <div class="step">Prueba <code>ping</code> entre PCs</div>
+                <div class="step"><strong>Resultado:</strong> Ahora deben comunicarse</div>
+            </div>
+        </div>
+        
+        <div class="packet-tracer-guide">
+            <h3>Ejercicio 5: NAT para Acceso a Internet</h3>
+            <div class="visual-guide">
+                <p><strong>Objetivo:</strong> Configurar salida a Internet</p>
+            </div>
+            
+            <div class="step-by-step">
+                <div class="step">Usa la topología del Ejercicio 4</div>
+                <div class="step">Agrega un dispositivo <strong>Internet Cloud</strong> y conéctalo al Router</div>
+                <div class="step">Haz clic en el <strong>Router</strong> → <strong>Config</strong> → <strong>NAT</strong></div>
+                <div class="step">Selecciona <strong>Interface: Gig0/1</strong> (hacia Internet) y marca <strong>Overload</strong></div>
+                <div class="step">En <strong>Inside</strong>, agrega las redes:
+                    <ul>
+                        <li><code>192.168.10.0/24</code></li>
+                        <li><code>192.168.20.0/24</code></li>
+                    </ul>
+                </div>
+                <div class="step">Desde cualquier PC, intenta hacer ping a <code>8.8.8.8</code></div>
+                <div class="step"><strong>Verifica:</strong> Usa el modo <strong>Simulation</strong> para ver el tráfico NAT</div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Conversor Binario a Decimal
+        function convertBinaryToDecimal() {
+            const binaryInput = document.getElementById('binaryInput').value;
+            if (!/^[01]{8}$/.test(binaryInput)) {
+                alert("Ingresa exactamente 8 bits (0s y 1s)");
+                return;
+            }
+            
+            // Actualizar tabla visual
+            for (let i = 0; i < 8; i++) {
+                document.getElementById(`bit${7-i}`).textContent = binaryInput[i];
+            }
+            
+            // Calcular decimal
+            let decimal = 0;
+            const values = [128, 64, 32, 16, 8, 4, 2, 1];
+            let steps = "";
+            
+            for (let i = 0; i < 8; i++) {
+                if (binaryInput[i] === '1') {
+                    decimal += values[i];
+                    steps += `${values[i]} + `;
+                }
+            }
+            
+            if (steps.length > 0) {
+                steps = steps.slice(0, -3); // Eliminar último " + "
+                steps += ` = ${decimal}`;
+            } else {
+                steps = "0";
+            }
+            
+            document.getElementById('binaryResult').innerHTML = 
+                `<strong>${binaryInput}</strong> en decimal es: <strong>${decimal}</strong><br>${steps}`;
+        }
+        
+        // Conversor Decimal a Binario
+        function convertDecimalToBinary() {
+            const decimalInput = parseInt(document.getElementById('decimalInput').value);
+            if (isNaN(decimalInput) || decimalInput < 0 || decimalInput > 255) {
+                alert("Ingresa un número entre 0 y 255");
+                return;
+            }
+            
+            let num = decimalInput;
+            const values = [128, 64, 32, 16, 8, 4, 2, 1];
+            let binary = "";
+            let steps = "Pasos:<br>";
+            
+            for (const val of values) {
+                if (num >= val) {
+                    binary += "1";
+                    steps += `${num} - ${val} = ${num - val}<br>`;
+                    num -= val;
+                } else {
+                    binary += "0";
+                }
+            }
+            
+            document.getElementById('decimalResult').innerHTML = 
+                `<strong>${decimalInput}</strong> en binario es: <strong>${binary}</strong>`;
+            document.getElementById('subtractionSteps').innerHTML = steps;
+        }
+        
+        // Mostrar soluciones
+        function showSolution(id) {
+            const sol = document.getElementById(id);
+            sol.style.display = sol.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
