@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Configuración Avanzada - Redes II</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: var(--dark);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: var(--secondary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        .analogy {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid var(--warning);
+        }
+        .analogy h4 {
+            margin-top: 0;
+            color: var(--warning);
+        }
+        .step-by-step {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            counter-reset: step;
+        }
+        .step {
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+        .step:before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+        }
+        .code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        .comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-item {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .activity {
+            background-color: #e8f4fc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 5px solid var(--primary);
+        }
+        .activity h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .visual-guide {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .visual-guide img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .resources {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        @media (max-width: 768px) {
+            .comparison {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Módulo 3: Configuración Avanzada y Servicios</h1>
+    <p><strong>Duración:</strong> 6 sesiones</p>
+
+    <div class="analogy">
+        <h4>📚 Aprendiendo con Analogías</h4>
+        <p>Imagina que tu red es una pequeña ciudad digital. En este módulo aprenderás a ser el "alcalde" que organiza cómo se comunican todos los habitantes (dispositivos).</p>
+    </div>
+
+    <h2>Sesión 9: DHCP - El Repartidor de Direcciones</h2>
+
+    <div class="analogy">
+        <h4>🚗 Analogía del Cartero</h4>
+        <p>DHCP es como un cartero que asigna direcciones a cada casa (dispositivo) en tu ciudad (red). Sin él, tendrías que configurar cada dispositivo manualmente, ¡como si tuvieras que decirle a cada persona dónde vivir!</p>
+    </div>
+
+    <h3>Cómo Funciona DHCP</h3>
+    <div class="step-by-step">
+        <div class="step">
+            <strong>Paso 1:</strong> El dispositivo (PC, celular) grita: "¡Necesito una dirección!" (DHCP Discover)
+        </div>
+        <div class="step">
+            <strong>Paso 2:</strong> El servidor responde: "Puedes usar esta dirección" (DHCP Offer)
+        </div>
+        <div class="step">
+            <strong>Paso 3:</strong> El dispositivo dice: "¡Sí, la acepto!" (DHCP Request)
+        </div>
+        <div class="step">
+            <strong>Paso 4:</strong> El servidor confirma: "Listo, es tuya por 3 días" (DHCP Ack)
+        </div>
+    </div>
+
+    <div class="visual-guide">
+        <h4>Proceso DHCP Visualizado</h4>
+        <pre>
+[Dispositivo] ---DHCP Discover---> [Servidor]
+[Dispositivo] <---DHCP Offer------ [Servidor]
+[Dispositivo] ---DHCP Request----> [Servidor]
+[Dispositivo] <---DHCP Ack-------- [Servidor]</pre>
+    </div>
+
+    <div class="activity">
+        <h4>🛠️ Actividad Práctica: Configurar DHCP en Packet Tracer</h4>
+        <div class="step-by-step">
+            <div class="step">
+                <strong>Paso 1:</strong> Arrastra estos componentes:
+                <ul>
+                    <li>1 Servidor (nuestro "cartero")</li>
+                    <li>1 Switch ("la plaza central")</li>
+                    <li>2 PCs ("casas" que necesitan dirección)</li>
+                </ul>
+            </div>
+            <div class="step">
+                <strong>Paso 2:</strong> Configura el servidor DHCP:
+                <div class="code">
+ip dhcp pool MI_RED
+   network 192.168.1.0 255.255.255.0
+   default-router 192.168.1.1
+   dns-server 8.8.8.8
+   lease 3</div>
+            </div>
+            <div class="step">
+                <strong>Paso 3:</strong> En las PCs, haz clic derecho → Config → DHCP
+            </div>
+            <div class="step">
+                <strong>Paso 4:</strong> Verifica con:
+                <div class="code">
+C:\> ipconfig /all</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Sesión 10: NAT - El Traductor de Direcciones</h2>
+
+    <div class="analogy">
+        <h4>🏨 Analogía del Hotel</h4>
+        <p>NAT es como la recepción de un hotel. Los huéspedes (dispositivos) tienen números de habitación (direcciones privadas como 192.168.1.x), pero el hotel solo tiene un número público. Cuando alguien llama, la recepción (NAT) sabe a qué habitación transferir la llamada.</p>
+    </div>
+
+    <div class="comparison">
+        <div class="comparison-item">
+            <h4>Sin NAT</h4>
+            <p>Es como si cada habitación de hotel tuviera su propio número de teléfono público - ¡muy costoso!</p>
+            <p>Ejemplo: 192.168.1.10 → Internet (todos ven tu dirección privada)</p>
+        </div>
+        <div class="comparison-item">
+            <h4>Con NAT</h4>
+            <p>Como un hotel con un solo número público. La recepción maneja todas las llamadas.</p>
+            <p>Ejemplo: 192.168.1.10 → 200.100.50.1 (Internet solo ve la dirección pública)</p>
+        </div>
+    </div>
+
+    <div class="activity">
+        <h4>🛠️ Configuración Paso a Paso</h4>
+        <div class="step-by-step">
+            <div class="step">
+                <strong>Paso 1:</strong> Permitir quién puede usar NAT:
+                <div class="code">
+access-list 1 permit 192.168.1.0 0.0.0.255</div>
+            </div>
+            <div class="step">
+                <strong>Paso 2:</strong> Configurar la traducción:
+                <div class="code">
+ip nat inside source list 1 interface GigabitEthernet0/1 overload</div>
+            </div>
+            <div class="step">
+                <strong>Paso 3:</strong> Marcar las interfaces:
+                <div class="code">
+interface GigabitEthernet0/0   # Puerta interior
+  ip nat inside
+interface GigabitEthernet0/1   # Puerta exterior
+  ip nat outside</div>
+            </div>
+            <div class="step">
+                <strong>Paso 4:</strong> Verificar con:
+                <div class="code">
+show ip nat translations</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Sesión 11: Compartir Recursos - Como Prestar Juguetes</h2>
+
+    <div class="analogy">
+        <h4>🧩 Analogía del Aula</h4>
+        <p>Compartir recursos en red es como cuando en el aula compartimos lápices y cuadernos. Necesitamos reglas claras sobre quién puede usar qué y cómo acceder a los recursos compartidos.</p>
+    </div>
+
+    <div class="comparison">
+        <div class="comparison-item">
+            <h4>Windows (GUI)</h4>
+            <div class="step-by-step">
+                <div class="step">1. Haz clic derecho en la carpeta → "Propiedades"</div>
+                <div class="step">2. Ve a "Compartir" → "Compartir..."</div>
+                <div class="step">3. Escribe "Todos" → "Agregar" → "Compartir"</div>
+            </div>
+        </div>
+        <div class="comparison-item">
+            <h4>Linux (Terminal)</h4>
+            <div class="code">
+sudo mkdir /compartido
+sudo chmod 777 /compartido
+sudo nano /etc/samba/smb.conf</div>
+            <p>Añadir al final:</p>
+            <div class="code">
+[compartido]
+   path = /compartido
+   browsable = yes
+   writable = yes
+   guest ok = yes</div>
+        </div>
+    </div>
+
+    <div class="activity">
+        <h4>🛠️ Actividad: Compartir entre PCs</h4>
+        <div class="step-by-step">
+            <div class="step">1. En PC1, crea una carpeta llamada "compartido"</div>
+            <div class="step">2. Compártela siguiendo los pasos anteriores</div>
+            <div class="step">3. En PC2, escribe en el Explorador: <code>\\IP-de-PC1\compartido</code></div>
+            <div class="step">4. Intenta crear un archivo de prueba</div>
+        </div>
+    </div>
+
+    <h2>Sesión 12: IPv6 - Direcciones Más Largas</h2>
+
+    <div class="analogy">
+        <h4>🌍 Analogía del Código Postal</h4>
+        <p>Si IPv4 es como los códigos postales antiguos (limitados), IPv6 es como un nuevo sistema que puede dar una dirección única a cada grano de arena en la Tierra... ¡y todavía sobrarían!</p>
+    </div>
+
+    <div class="comparison">
+        <div class="comparison-item">
+            <h4>IPv4 (Corto)</h4>
+            <div class="code">
+192.168.1.1
+255.255.255.0</div>
+            <p>4,000 millones de direcciones</p>
+        </div>
+        <div class="comparison-item">
+            <h4>IPv6 (Largo)</h4>
+            <div class="code">
+2001:0db8:85a3:0000:0000:8a2e:0370:7334
+2001:db8::/32</div>
+            <p>340 sextillones de direcciones</p>
+        </div>
+    </div>
+
+    <div class="activity">
+        <h4>🛠️ Configuración Básica</h4>
+        <div class="code">
+Router(config)# ipv6 unicast-routing
+Router(config-if)# ipv6 address 2001:db8:1234::1/64
+Router(config-if)# ipv6 enable</div>
+    </div>
+
+    <div class="resources">
+        <h3>🔍 Recursos Adicionales</h3>
+        <ul>
+            <li><a href="https://www.dhcp-game.net/" target="_blank">Juego interactivo sobre DHCP</a></li>
+            <li><a href="https://www.netacad.com/courses/packet-tracer" target="_blank">Packet Tracer (simulador de redes)</a></li>
+            <li><a href="http://ipv6-test.com/" target="_blank">Prueba tu conexión IPv6</a></li>
+        </ul>
+    </div>
+
+    <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; margin-top: 40px; text-align: center;">
+        <h3>🎯 Objetivos Logrados</h3>
+        <p>✔️ Entendiste DHCP como un cartero digital<br>
+        ✔️ Aprendiste NAT con la analogía del hotel<br>
+        ✔️ Compartiste recursos como en un aula<br>
+        ✔️ Conociste IPv6, el futuro de las direcciones</p>
+        <p style="font-weight: bold; font-size: 1.2em;">¡Ahora estás listo para el Módulo 4 sobre Seguridad en Redes!</p>
+    </div>
+</body>
+</html>
