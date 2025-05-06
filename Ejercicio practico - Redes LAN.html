@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio: Conexión de 3 Redes LAN</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .exercise-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            border-left: 3px solid var(--primary);
+        }
+        .step-number {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            background-color: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .visual-guide {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        .network-diagram {
+            font-family: monospace;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .config-table th, .config-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .config-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .verification {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 25px 0;
+        }
+        @media (max-width: 768px) {
+            .step {
+                padding-left: 25px;
+            }
+            .step-number {
+                left: -12px;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio Práctico: Conexión de 3 Redes LAN</h1>
+    
+    <div class="exercise-container">
+        <h2>📌 Objetivo</h2>
+        <p>Conectar 3 redes LAN diferentes (Oficina, Ventas y Almacén) mediante un router, utilizando <strong>solo la interfaz gráfica</strong> de Packet Tracer.</p>
+        
+        <div class="visual-guide">
+            <h3>Topología Final</h3>
+            <div class="network-diagram">
+                [PC0: 192.168.10.10] ↔ [Switch0] ↔ [Router] ↔ [Switch1] ↔ [PC1: 192.168.20.10]
+                                      ↳ [Switch2] ↔ [PC2: 192.168.30.10]
+            </div>
+        </div>
+    </div>
+    
+    <div class="exercise-container">
+        <h2>🛠 Materiales Necesarios</h2>
+        <ul>
+            <li><strong>Dispositivos:</strong>
+                <ul>
+                    <li>1 Router (2911)</li>
+                    <li>3 Switches (2960)</li>
+                    <li>3 PCs (una para cada red)</li>
+                    <li>Cables azules (FastEthernet)</li>
+                </ul>
+            </li>
+            <li><strong>Direccionamiento:</strong>
+                <ul>
+                    <li><strong>Red Oficina:</strong> 192.168.10.0/24</li>
+                    <li><strong>Red Ventas:</strong> 192.168.20.0/24</li>
+                    <li><strong>Red Almacén:</strong> 192.168.30.0/24</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="exercise-container">
+        <h2>🔧 Configuración Paso a Paso (100% Gráfico)</h2>
+        
+        <h3>Paso 1: Armar la Topología</h3>
+        <div class="step">
+            <div class="step-number">1</div>
+            <p><strong>Arrastra los dispositivos</strong> al área de trabajo:</p>
+            <ul>
+                <li>1 Router <strong>2911</strong> (central)</li>
+                <li>3 Switches <strong>2960</strong> (uno para cada red)</li>
+                <li>3 PCs (una conectada a cada switch)</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">2</div>
+            <p><strong>Conecta los cables:</strong></p>
+            <ul>
+                <li>Usa cables <strong>azules</strong> (FastEthernet):
+                    <ul>
+                        <li>Router <strong>Gig0/0</strong> → Switch0 (Oficina)</li>
+                        <li>Router <strong>Gig0/1</strong> → Switch1 (Ventas)</li>
+                        <li>Router <strong>Gig0/2</strong> → Switch2 (Almacén)</li>
+                    </ul>
+                </li>
+                <li>Conecta cada PC al switch correspondiente</li>
+            </ul>
+            <div class="note">
+                💡 <strong>Nota:</strong> Los puertos del router suelen estar en la parte posterior. Haz clic y arrastra el cable desde el switch hasta el puerto correcto del router.
+            </div>
+        </div>
+        
+        <h3>Paso 2: Configurar las PCs</h3>
+        <div class="step">
+            <div class="step-number">3</div>
+            <p><strong>Configuración de PC0 (Oficina):</strong></p>
+            <ol>
+                <li>Haz clic en <strong>PC0</strong></li>
+                <li>Selecciona la pestaña <strong>Desktop</strong></li>
+                <li>Haz clic en <strong>IP Configuration</strong></li>
+                <li>Selecciona <strong>Static</strong> (IP fija)</li>
+                <li>Ingresa:
+                    <ul>
+                        <li>IP: <code>192.168.10.10</code></li>
+                        <li>Subnet Mask: <code>255.255.255.0</code></li>
+                        <li>Gateway: <code>192.168.10.1</code></li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">4</div>
+            <p><strong>Configura las demás PCs:</strong></p>
+            <table class="config-table">
+                <tr>
+                    <th>Dispositivo</th>
+                    <th>IP</th>
+                    <th>Máscara</th>
+                    <th>Gateway</th>
+                </tr>
+                <tr>
+                    <td>PC1 (Ventas)</td>
+                    <td>192.168.20.10</td>
+                    <td>255.255.255.0</td>
+                    <td>192.168.20.1</td>
+                </tr>
+                <tr>
+                    <td>PC2 (Almacén)</td>
+                    <td>192.168.30.10</td>
+                    <td>255.255.255.0</td>
+                    <td>192.168.30.1</td>
+                </tr>
+            </table>
+        </div>
+        
+        <h3>Paso 3: Configurar el Router (Sin Consola)</h3>
+        <div class="step">
+            <div class="step-number">5</div>
+            <p><strong>Configuración de interfaces:</strong></p>
+            <ol>
+                <li>Haz clic en el <strong>Router</strong></li>
+                <li>Selecciona la pestaña <strong>Config</strong></li>
+                <li>Haz clic en <strong>Interfaces</strong> en el menú izquierdo</li>
+            </ol>
+            
+            <p><strong>Para cada interfaz:</strong></p>
+            <table class="config-table">
+                <tr>
+                    <th>Interfaz</th>
+                    <th>IP</th>
+                    <th>Máscara</th>
+                    <th>Estado</th>
+                </tr>
+                <tr>
+                    <td>GigabitEthernet0/0 (Oficina)</td>
+                    <td>192.168.10.1</td>
+                    <td>255.255.255.0</td>
+                    <td>ON</td>
+                </tr>
+                <tr>
+                    <td>GigabitEthernet0/1 (Ventas)</td>
+                    <td>192.168.20.1</td>
+                    <td>255.255.255.0</td>
+                    <td>ON</td>
+                </tr>
+                <tr>
+                    <td>GigabitEthernet0/2 (Almacén)</td>
+                    <td>192.168.30.1</td>
+                    <td>255.255.255.0</td>
+                    <td>ON</td>
+                </tr>
+            </table>
+            <div class="note">
+                🔄 <strong>Importante:</strong> Activa cada interfaz cambiando el toggle a <strong>ON</strong> después de configurar la IP.
+            </div>
+        </div>
+        
+        <h3>Paso 4: Verificar Conexión</h3>
+        <div class="step">
+            <div class="step-number">6</div>
+            <p><strong>Pruebas de conectividad:</strong></p>
+            <ol>
+                <li>En cada PC, haz clic en <strong>Desktop</strong> → <strong>Command Prompt</strong></li>
+                <li>Ejecuta los siguientes comandos:</li>
+            </ol>
+            
+            <div class="verification">
+                <p><strong>Desde PC0 (Oficina):</strong></p>
+                <code>ping 192.168.20.10  # Debe responder (Ventas)</code><br>
+                <code>ping 192.168.30.10  # Debe responder (Almacén)</code>
+                
+                <p><strong>Desde PC1 (Ventas):</strong></p>
+                <code>ping 192.168.10.10  # Oficina</code><br>
+                <code>ping 192.168.30.10  # Almacén</code>
+            </div>
+            
+            <div class="note">
+                ❌ <strong>Si el ping falla:</strong>
+                <ul>
+                    <li>Verifica que las IPs y gateways estén correctos</li>
+                    <li>Revisa que los cables estén <strong>verdes</strong> (conectados)</li>
+                    <li>Confirma que las interfaces del router estén activadas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="exercise-container">
+        <h2>🎯 Resultado Esperado</h2>
+        <ul>
+            <li>✅ Las 3 PCs pueden comunicarse entre sí</li>
+            <li>✅ El router enruta correctamente entre redes</li>
+            <li>✅ No se requirió usar la línea de comandos</li>
+        </ul>
+        
+        <div class="visual-guide">
+            <h3>Flujo de Comunicación</h3>
+            <div class="network-diagram">
+                [Oficina] → [Router] → [Ventas]
+                          ↘
+                            [Almacén]
+            </div>
+        </div>
+    </div>
+</body>
+</html>
