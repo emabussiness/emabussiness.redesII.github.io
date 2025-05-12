@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataformas Gratuitas de Hacking Ético</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, h4 {
+            color: var(--primary);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .platform-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .platform-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .platform-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+        }
+        .platform-content {
+            flex: 1;
+        }
+        .features-list {
+            columns: 2;
+            margin: 15px 0;
+        }
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .difficulty-indicator {
+            display: flex;
+            margin: 10px 0;
+        }
+        .difficulty-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .beginner { background: var(--success); }
+        .intermediate { background: var(--warning); }
+        .advanced { background: var(--danger); }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .features-list {
+                columns: 1;
+            }
+            .platform-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .platform-logo {
+                margin: 0 0 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🌐 Plataformas Gratuitas para Practicar Hacking Ético</h1>
+
+    <div class="platform-card">
+        <div class="platform-header">
+            <img src="https://tryhackme.com/img/favicon.png" alt="TryHackMe" class="platform-logo">
+            <div>
+                <h2>TryHackMe</h2>
+                <p>Aprendizaje guiado con máquinas interactivas</p>
+            </div>
+        </div>
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot beginner"></div>
+            <div class="difficulty-dot beginner"></div>
+            <div class="difficulty-dot intermediate"></div>
+            <div class="difficulty-dot advanced" style="opacity: 0.3;"></div>
+            <div class="difficulty-dot advanced" style="opacity: 0.3;"></div>
+        </div>
+        <div class="platform-content">
+            <ul class="features-list">
+                <li>+500 laboratorios interactivos</li>
+                <li>Rutas de aprendizaje estructuradas</li>
+                <li>Máquinas gratuitas y premium</li>
+                <li>Entorno en la nube sin configuración</li>
+                <li>Temas desde básico a avanzado</li>
+                <li>Sistema de logros y puntos</li>
+            </ul>
+            <p><strong>Ejercicio destacado:</strong> "Nmap básico" te enseña escaneo de redes paso a paso</p>
+            <a href="https://tryhackme.com/" class="cta-button" target="_blank">Ir a TryHackMe</a>
+        </div>
+    </div>
+
+    <div class="platform-card">
+        <div class="platform-header">
+            <img src="https://static-00.iconduck.com/assets.00/hack-the-box-icon-2048x2048-vce7bnzq.png" alt="Hack The Box" class="platform-logo">
+            <div>
+                <h2>Hack The Box (HTB)</h2>
+                <p>Máquinas reales para desafíos de hacking</p>
+            </div>
+        </div>
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot beginner" style="opacity: 0.3;"></div>
+            <div class="difficulty-dot intermediate"></div>
+            <div class="difficulty-dot advanced"></div>
+            <div class="difficulty-dot advanced"></div>
+            <div class="difficulty-dot advanced"></div>
+        </div>
+        <div class="platform-content">
+            <ul class="features-list">
+                <li>+200 máquinas vulnerables</li>
+                <li>Máquinas "retiradas" gratis</li>
+                <li>Desafíos semanales</li>
+                <li>Plataforma de competencia</li>
+                <li>Laboratorios empresariales</li>
+                <li>Sistema de ranking</li>
+            </ul>
+            <p><strong>Dato clave:</strong> Tienen máquinas "Starting Point" para principiantes</p>
+            <a href="https://www.hackthebox.com/" class="cta-button" target="_blank">Ir a Hack The Box</a>
+        </div>
+    </div>
+
+    <div class="platform-card">
+        <div class="platform-header">
+            <img src="https://f4.bcbits.com/img/a0479485750_16.jpg" alt="OverTheWire" class="platform-logo">
+            <div>
+                <h2>OverTheWire</h2>
+                <p>Juegos de guerra para aprender comandos</p>
+            </div>
+        </div>
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot beginner"></div>
+            <div class="difficulty-dot intermediate"></div>
+            <div class="difficulty-dot advanced"></div>
+            <div class="difficulty-dot advanced"></div>
+            <div class="difficulty-dot advanced"></div>
+        </div>
+        <div class="platform-content">
+            <ul class="features-list">
+                <li>Bandit (ideal para principiantes)</li>
+                <li>Natas (web hacking)</li>
+                <li>Leviathan (binarios)</li>
+                <li>Krypton (criptografía)</li>
+                <li>Sin interfaz gráfica, solo SSH</li>
+                <li>Enfoque en Linux/terminal</li>
+            </ul>
+            <p><strong>Recomendación:</strong> Comienza con "Bandit" para aprender comandos Linux</p>
+            <a href="https://overthewire.org/wargames/" class="cta-button" target="_blank">Ir a OverTheWire</a>
+        </div>
+    </div>
+
+    <h2>📊 Comparativa de Plataformas</h2>
+    <table class="comparison-table">
+        <tr>
+            <th>Plataforma</th>
+            <th>Enfoque</th>
+            <th>Nivel</th>
+            <th>Acceso Gratuito</th>
+            <th>Requisitos</th>
+        </tr>
+        <tr>
+            <td>TryHackMe</td>
+            <td>Aprendizaje guiado</td>
+            <td>Principiante-Intermedio</td>
+            <td>+100 máquinas gratis</td>
+            <td>Navegador</td>
+        </tr>
+        <tr>
+            <td>Hack The Box</td>
+            <td>Desafíos prácticos</td>
+            <td>Intermedio-Avanzado</td>
+            <td>Máquinas retiradas</td>
+            <td>VPN (OpenVPN)</td>
+        </tr>
+        <tr>
+            <td>OverTheWire</td>
+            <td>Comandos Linux</td>
+            <td>Todos los niveles</td>
+            <td>Completamente gratis</td>
+            <td>SSH</td>
+        </tr>
+    </table>
+
+    <div class="platform-card" style="background-color: #f0f7fd;">
+        <h2>🚀 Cómo Empezar en TryHackMe (Ejemplo Práctico)</h2>
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Regístrate en TryHackMe</h3>
+            <p>Ve a <a href="https://tryhackme.com/" target="_blank">tryhackme.com</a> y crea una cuenta gratuita</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Accede al "Learning Path"</h3>
+            <p>Selecciona "Pre Security" o "Complete Beginner"</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Completa la sala "Nmap"</h3>
+            <p>Aprenderás escaneo básico con ejercicios interactivos:</p>
+            <div class="code">
+                # Ejercicio práctico incluido:<br>
+                nmap -sV -T4 10.10.10.10<br>
+                # Descubrirás puertos abiertos en tiempo real
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Prueba máquinas "AttackBox"</h3>
+            <p>Algunas salas incluyen máquinas virtuales en la nube:</p>
+            <div class="terminal">
+                <span class="prompt">user@attackbox</span> ping 10.10.10.10<br>
+                <span class="prompt">user@attackbox</span> hydra -l admin -P pass.txt ssh://10.10.10.10
+            </div>
+        </div>
+    </div>
+
+    <h2>🔍 Otras Alternativas Gratuitas</h2>
+    <div class="platform-card" style="background-color: #fff8e1;">
+        <ul class="features-list">
+            <li><strong>PentesterLab</strong>: Ejercicios web (algunos gratis)</li>
+            <li><strong>RingZer0</strong>: Retos de hacking variados</li>
+            <li><strong>PicoCTF</strong>: Para adolescentes (pero útil para adultos)</li>
+            <li><strong>VulnHub</strong>: Máquinas virtuales descargables</li>
+            <li><strong>CTFlearn</strong>: Retos de Capture The Flag</li>
+            <li><strong>Hacker101</strong>: Por HackerOne (bug bounty)</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        ⚠️ <strong>Consejo de Seguridad:</strong> Usa siempre una VPN cuando te conectes a estos laboratorios y nunca uses tus credenciales personales en las máquinas de práctica.
+    </div>
+</body>
+</html>
